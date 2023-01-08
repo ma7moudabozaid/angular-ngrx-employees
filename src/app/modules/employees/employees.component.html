@@ -1,42 +1,76 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
       <div class="card-title">
         <h1> Employees </h1>
       </div>
     </div>
-    <div class="col-md-12">
-      <div class="card-table" *ngIf="employees$ | async as employees">
-        <table class="table table-bordered table-md table-responsive-sm">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Price</th>
-              <th>Company</th>
-              <th>Country</th>
-              <th>Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of employees; let i = index">
-              <td>{{ i + 1 }}</td>
-              <td>{{ item.name }}</td>
-              <td>{{ item.email }}</td>
-              <td>{{ item.phone }}</td>
-              <td>{{ item.company }}</td>
-              <td>{{ item.country }}</td>
-              <td>{{ item.date }}</td>
-            </tr>
-          </tbody>
-        </table>
+    <div class="col-lg-3 col-md-4">
+      <div class="card-filter">
+        <h3> Filters </h3>
+
+        <div class="filter-form">
+          <form>
+            <div class="input-group ">
+              <input type="email" class="form-control" placeholder="Email">
+            </div>
+            <div class="input-group ">
+              <input type="text" class="form-control" placeholder="Phone">
+            </div>
+            <div class="input-group ">
+              <input type="text" class="form-control" placeholder="Name">
+            </div>
+            <div class="input-group ">
+              <input type="text" class="form-control" placeholder="company">
+            </div>
+            <div class="input-group ">
+              <input type="country" class="form-control" placeholder="country">
+            </div>
+            <div class="input-group ">
+           <button class="btn"> Filter </button>
+            </div>
+          </form>
+        </div>
       </div>
+    </div>
+    <div class="col-lg-9 col-md-8">
       <div class="">
         <div *ngIf="loading$ | async">
           <app-loading></app-loading>
         </div>
       </div>
+      <div class="card-table" *ngIf="employees$ | async as employees">
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Date</th>
+                <th>Company</th>
+                <th>Country</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of employees; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.phone }}</td>
+                <td>{{ item.email }}</td>
+                <td>{{ item.date | date }}</td>
+                <td>{{ item.company }}</td>
+                <td>{{ item.country }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div *ngIf="employees.length == 0">
+          <app-not-found></app-not-found>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>

@@ -1,1 +1,55 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  background-color: #eef0f2;
+}
+.card-title {
+  font-size: 32px;
+  padding: 30px 0px;
+}
+.card-table {
+  background-color: #fff;
+  .table {
+    border-color: #e9edf4;
+    color: #42444d !important;
+  }
+  .table > thead {
+    vertical-align: middle;
+    background: #f7f8f9;
+  }
+  .table > :not(caption) > * > * {
+    padding: 10px;
+    font-weight: 400;
+    font-size: 14px;
+  }
+}
+.card-filter {
+  background-color: #fff;
+  h3 {
+    font-size: 35px;
+    color: #42444d;
+    text-align: center;
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+  }
+  .filter-form {
+    padding: 15px;
+    .input-group {
+      margin-bottom: 20px;
+      .btn {
+        background-color: #007aff;
+        color: #fff;
+        margin: 10px auto;
+        font-size: 16px;
+        padding: 8px 30px;
+        border-radius: 4px;
+      }
+    }
+    .form-control {
+      border: 0px solid #fff;
+      border-bottom: 2px solid #e2e4e5;
+      border-radius: 0px;
+      font-size: 14px;
+    }
+  }
+}
