@@ -1,0 +1,9 @@
+.navbar {
+  box-shadow: 1px 1px 2px 1px #d1d1d1;
+  padding: 10px;
+}
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-collapse {
+    justify-content: end;
+  }
+}

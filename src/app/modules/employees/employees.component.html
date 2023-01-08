@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card-title">
+        <h1> Employees </h1>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="card-table" *ngIf="employees$ | async as employees">
+        <table class="table table-bordered table-md table-responsive-sm">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Price</th>
+              <th>Company</th>
+              <th>Country</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of employees; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ item.name }}</td>
+              <td>{{ item.email }}</td>
+              <td>{{ item.phone }}</td>
+              <td>{{ item.company }}</td>
+              <td>{{ item.country }}</td>
+              <td>{{ item.date }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="">
+        <div *ngIf="loading$ | async">
+          <app-loading></app-loading>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
