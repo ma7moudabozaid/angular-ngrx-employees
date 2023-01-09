@@ -8,10 +8,12 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { employeeReducer } from '../../ngrx/employee/employee.reducer';
 import { EmployeeEffect } from '../../ngrx/employee/employee.effect';
+import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 
 @NgModule({
   declarations: [
-    EmployeesComponent
+    EmployeesComponent,
+    EmployeeDetailsComponent
   ],
   imports: [
     CommonModule,

@@ -20,8 +20,8 @@ export class EmployeeEffect {
   loadEmployees$ = createEffect(() =>
     this.actions$.pipe(
       ofType(EmployeeActions.FetchEmployee),
-      switchMap(() =>
-        this.employeeService.getEmployee().pipe(
+      switchMap((emp) =>
+        this.employeeService.getEmployee(emp).pipe(
           map((response) =>
             EmployeeActions.FetchEmployeeSuccess({
               employees: response['employees'],

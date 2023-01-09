@@ -3,7 +3,10 @@ import { Employee } from '../../core/models/employee';
 
 //=============== Employees List ===========================================
 
-export const FetchEmployee = createAction('[EMPLOYEE] Fetch Employee');
+export const FetchEmployee = createAction(
+  '[EMPLOYEE] Fetch Employee',
+  props<{ employee: Employee }>()
+);
 export const FetchEmployeeSuccess = createAction(
   '[EMPLOYEE] Fetch Employee Success',
   props<{ employees: Employee[] }>()

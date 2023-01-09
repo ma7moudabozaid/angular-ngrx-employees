@@ -16,6 +16,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: '',
+    loadChildren: () =>
+      import('./modules/employees/employees.module').then(
+        (m) => m.EmployeesModule
+      ),
+  },
+  {
     path: 'shared',
     loadChildren: () =>
       import('./shared/shared.module').then((m) => m.SharedModule),

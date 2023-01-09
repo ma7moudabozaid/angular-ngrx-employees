@@ -17,14 +17,24 @@ export class EmployeesComponent implements OnInit {
   employees$: Observable<Employee[]>;
   loading$!: Observable<Boolean>;
   error$!: Observable<Error>;
-
+  Company11: string;
   constructor(
     private store: Store<EmployeeAppState>,
     private route: ActivatedRoute
   ) {}
 
+  employee = {
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    country: '',
+    // date: null,
+  };
   ngOnInit(): void {
-    this.store.dispatch(EmployeeActions.FetchEmployee());
+    this.store.dispatch(
+      EmployeeActions.FetchEmployee({ employee: this.employee })
+    );
     this.employees$ = this.store.pipe(select(selectEmployees));
     this.loading$ = this.store.select((store) => store.employee.loading);
     console.log(this.employees$);
