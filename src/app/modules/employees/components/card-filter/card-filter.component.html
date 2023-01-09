@@ -1,0 +1,28 @@
+<!-- filterForm.form.valid &&  -->
+<form #filterForm="ngForm">
+  <!-- <div class="input-group ">
+    <input type="email" class="form-control" placeholder="Email" [(ngModel)]="employee.email" name="email">
+  </div> -->
+  <div class="input-group ">
+    <input type="text" class="form-control" placeholder="Phone" [(ngModel)]="employee.phone" name="phone">
+  </div>
+  <div class="input-group ">
+    <input type="text" class="form-control" placeholder="Name" [(ngModel)]="employee.name" name="name">
+  </div>
+  <!-- <div class="input-group ">
+    <input type="text" class="form-control" placeholder="company" [(ngModel)]="employee.company" name="company">
+  </div> -->
+  <div class="input-group ">
+    <input type="text" class="form-control" placeholder="country" [(ngModel)]="employee.country" name="country"
+      #country="ngModel">
+    <!-- <span class="text-danger" *ngIf="filterForm.submitted && country.errors['required']">
+                Country is required
+              </span> -->
+  </div>
+  <div class="input-group ">
+    <input type="date" class="form-control" placeholder="date" [(ngModel)]="employee.date" name="date">
+  </div>
+  <div class="input-group ">
+    <button class="btn" type="submit" (click)="setQuery()"> Filter </button>
+  </div>
+</form>

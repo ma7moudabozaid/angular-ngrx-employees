@@ -9,11 +9,13 @@ import { EffectsModule } from '@ngrx/effects';
 import { employeeReducer } from '../../ngrx/employee/employee.reducer';
 import { EmployeeEffect } from '../../ngrx/employee/employee.effect';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
+import { CardFilterComponent } from './components/card-filter/card-filter.component';
 
 @NgModule({
   declarations: [
     EmployeesComponent,
-    EmployeeDetailsComponent
+    EmployeeDetailsComponent,
+    CardFilterComponent
   ],
   imports: [
     CommonModule,

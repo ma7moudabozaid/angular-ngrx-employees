@@ -17,26 +17,57 @@ export class EmployeesComponent implements OnInit {
   employees$: Observable<Employee[]>;
   loading$!: Observable<Boolean>;
   error$!: Observable<Error>;
-  Company11: string;
+  employee: Employee = new Employee();
+
+  // employee = {
+  //   name: null,
+  //   phone: null,
+  //   country: null,
+  //   date: null,
+  // };
   constructor(
     private store: Store<EmployeeAppState>,
     private route: ActivatedRoute
   ) {}
 
-  employee = {
-    name: '',
-    email: '',
-    phone: '',
-    company: '',
-    country: '',
-    // date: null,
-  };
   ngOnInit(): void {
-    this.store.dispatch(
-      EmployeeActions.FetchEmployee({ employee: this.employee })
-    );
-    this.employees$ = this.store.pipe(select(selectEmployees));
-    this.loading$ = this.store.select((store) => store.employee.loading);
-    console.log(this.employees$);
+    this.route.queryParams.subscribe((params: Employee) => {
+      this.employee = { ...params };
+
+      this.employee.name = params.name || '';
+      this.employee.phone = params.phone || '';
+      this.employee.country = params.country || '';
+      this.employee.date = params.date || '';
+
+      if (this.employee) {
+        this.store.dispatch(
+          EmployeeActions.FetchEmployee({ employee: this.employee })
+        );
+        this.employees$ = this.store.pipe(select(selectEmployees));
+        this.loading$ = this.store.select((store) => store.employee.loading);
+      }
+      // console.log(this.employees$);
+
+      // console.log(params['name']);
+      // console.log(params['company']);
+      // console.log(params['country']);
+
+      // this.employee.name == params['name'] || null;
+      // console.log(this.employee);
+
+      // if (this.employee) {
+      //   this.getEmployees();
+      // }
+    });
   }
+
+  // getEmployees() {
+  //   console.log('employee', this.employee);
+  //   this.store.dispatch(
+  //     EmployeeActions.FetchEmployee({ employee: this.employee })
+  //   );
+  //   this.employees$ = this.store.pipe(select(selectEmployees));
+  //   this.loading$ = this.store.select((store) => store.employee.loading);
+  //   console.log(this.employees$);
+  // }
 }
