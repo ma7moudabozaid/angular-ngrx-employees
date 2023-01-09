@@ -39,6 +39,7 @@ import { ToastrModule } from 'ngx-toastr';
     ToastrModule,
     NotFoundComponent,
     LoadingComponent,
+    FilterPipe,
   ],
 })
 export class SharedModule {}

@@ -4,11 +4,15 @@ body {
   background-color: #eef0f2;
 }
 .card-title {
-  font-size: 32px;
-  padding: 30px 0px;
+  text-align: center;
+  h1 {
+    font-size: 34px !important;
+    padding: 30px 0px;
+  }
 }
 .card-table {
   background-color: #fff;
+  margin-bottom: 30px;
   .table {
     border-color: #e9edf4;
     color: #42444d !important;
@@ -32,6 +36,7 @@ body {
 }
 .card-filter {
   background-color: #fff;
+  margin-bottom: 30px;
   h3 {
     font-size: 35px;
     color: #42444d;
@@ -46,7 +51,7 @@ body {
       .btn {
         background-color: #007aff;
         color: #fff;
-        margin: 10px auto;
+        margin: 15px auto;
         font-size: 16px;
         padding: 8px 30px;
         border-radius: 4px;
@@ -66,5 +71,24 @@ body {
       font-size: 14px;
       color: #555;
     }
+  }
+}
+.card-search {
+  background-color: #fff;
+  border: 1px solid #eef0f2;
+  border-radius: 0;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  p {
+    padding: 5px;
+    margin: 0px;
+    margin-bottom: 0px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .form-control {
+    font-size: 14px;
+    border-radius: 4px;
   }
 }

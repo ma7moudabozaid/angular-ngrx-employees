@@ -9,9 +9,10 @@ import { EffectsModule } from '@ngrx/effects';
 import { employeeReducer } from '../../ngrx/employee/employee.reducer';
 import { EmployeeEffect } from '../../ngrx/employee/employee.effect';
 import { CardFilterComponent } from './components/card-filter/card-filter.component';
+import { CardTableComponent } from './components/card-table/card-table.component';
 
 @NgModule({
-  declarations: [EmployeesComponent, CardFilterComponent],
+  declarations: [EmployeesComponent, CardFilterComponent, CardTableComponent],
   imports: [
     CommonModule,
     EmployeesRoutingModule,
