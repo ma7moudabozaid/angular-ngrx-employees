@@ -36,7 +36,9 @@ export class EmployeesComponent implements OnInit {
 
       this.employee.name = params.name || '';
       this.employee.phone = params.phone || '';
+      this.employee.email = params.email || '';
       this.employee.country = params.country || '';
+      this.employee.company = params.company || '';
       this.employee.date = params.date || '';
 
       if (this.employee) {

@@ -15,7 +15,7 @@ export class EmployeeService {
     console.log('emp', emp.employee);
     return this.http.get<Employee[]>(
       this.apiUrl +
-        `get?name=${emp.employee?.name}&phone=${emp.employee?.phone}&country=${emp.employee?.country}&date=${emp.employee?.date}`
+        `get?name=${emp.employee?.name}&email=${emp.employee?.email}&phone=${emp.employee?.phone}&company=${emp.employee?.company}&country=${emp.employee?.country}&date=${emp.employee?.date}`
     );
   }
   // &date=${emp.employee.date}

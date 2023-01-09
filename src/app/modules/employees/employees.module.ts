@@ -8,21 +8,16 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { employeeReducer } from '../../ngrx/employee/employee.reducer';
 import { EmployeeEffect } from '../../ngrx/employee/employee.effect';
-import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { CardFilterComponent } from './components/card-filter/card-filter.component';
 
 @NgModule({
-  declarations: [
-    EmployeesComponent,
-    EmployeeDetailsComponent,
-    CardFilterComponent
-  ],
+  declarations: [EmployeesComponent, CardFilterComponent],
   imports: [
     CommonModule,
     EmployeesRoutingModule,
     SharedModule,
-    StoreModule.forFeature("employee", employeeReducer),
+    StoreModule.forFeature('employee', employeeReducer),
     EffectsModule.forFeature([EmployeeEffect]),
-  ]
+  ],
 })
-export class EmployeesModule { }
+export class EmployeesModule {}
