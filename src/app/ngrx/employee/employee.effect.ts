@@ -10,7 +10,7 @@ export class EmployeeEffect {
   store: any;
   constructor(
     private actions$: Actions,
-    private employeeService: EmployeeService,
+    private employeeService: EmployeeService
   ) {}
   //================ load Employees  ================================================
   loadEmployees$ = createEffect(() =>
@@ -30,5 +30,4 @@ export class EmployeeEffect {
       )
     )
   );
-
 }

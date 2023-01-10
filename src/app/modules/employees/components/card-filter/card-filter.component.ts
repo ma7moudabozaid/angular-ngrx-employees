@@ -1,3 +1,4 @@
+import { animate, style, transition, trigger } from '@angular/animations';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -9,9 +10,8 @@ import { Employee } from '../../../../core/models/employee';
   styleUrls: ['./card-filter.component.scss'],
 })
 export class CardFilterComponent implements OnInit {
-
   employee: Employee = new Employee();
-
+  isShow: boolean;
   constructor(
     private router: Router,
     private route: ActivatedRoute,

@@ -11,38 +11,20 @@ export const initialEmployeeState = {
 const _employeeReducer = createReducer(
   initialEmployeeState,
   //=================== Employees List =============================================
-  on(
-    EmployeeActions.FetchEmployee,
-    (state) => (
-      console.log('Fetch Employee reducer called'),
-      {
-        ...state,
-        loading: true,
-      }
-    )
-  ),
-  on(
-    EmployeeActions.FetchEmployeeSuccess,
-    (state, { employees }) => (
-      console.log('FetchEmployeeSuccess reducer called'),
-      {
-        ...state,
-        list: employees,
-        loading: false,
-      }
-    )
-  ),
-  on(
-    EmployeeActions.FetchEmployeeFailure,
-    (state, { error }) => (
-      console.log('FetchEmployeeFailure reducer called'),
-      {
-        ...state,
-        error: error,
-        loading: false,
-      }
-    )
-  )
+  on(EmployeeActions.FetchEmployee, (state) => ({
+    ...state,
+    loading: true,
+  })),
+  on(EmployeeActions.FetchEmployeeSuccess, (state, { employees }) => ({
+    ...state,
+    list: employees,
+    loading: false,
+  })),
+  on(EmployeeActions.FetchEmployeeFailure, (state, { error }) => ({
+    ...state,
+    error: error,
+    loading: false,
+  }))
   //================================================================
 );
 

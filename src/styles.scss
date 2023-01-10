@@ -37,12 +37,19 @@ body {
 .card-filter {
   background-color: #fff;
   margin-bottom: 30px;
+  overflow: hidden;
+  position: relative;
   h3 {
     font-size: 35px;
     color: #42444d;
     text-align: center;
     padding: 15px;
     border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    z-index: 9;
+  }
+  h3:hover {
+    background-color: #f5f5f5;
   }
   .filter-form {
     padding: 15px;

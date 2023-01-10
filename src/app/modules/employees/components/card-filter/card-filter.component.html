@@ -1,7 +1,7 @@
 <!-- filterForm.form.valid &&  -->
 <div class="card-filter">
-  <h3> Filters </h3>
-  <div class="filter-form">
+  <h3 (click)="isShow = !isShow"> Filters </h3>
+  <div class="filter-form" *ngIf="!isShow">
     <form #filterForm="ngForm">
 
       <div class="input-group" *ngFor="let item of items">
