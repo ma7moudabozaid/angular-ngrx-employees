@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Employee } from '../../../../core/models/employee';
 import { EmployeeAppState } from '../../../../ngrx/app.state';
 import { selectEmployees } from '../../../../ngrx/employee/employee.selector';
@@ -26,6 +26,10 @@ export class CardTableComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.getEmployees();
+  }
+
+  getEmployees() {
     this.route.queryParams.subscribe((params: Employee) => {
       this.employee = { ...params };
 
@@ -37,34 +41,10 @@ export class CardTableComponent implements OnInit {
       this.employee.date = params.date || '';
 
       if (this.employee) {
-        this.store.dispatch(
-          EmployeeActions.FetchEmployee({ employee: this.employee })
-        );
+        this.store.dispatch(EmployeeActions.FetchEmployee({employee: this.employee }));
         this.employees$ = this.store.pipe(select(selectEmployees));
         this.loading$ = this.store.select((store) => store.employee.loading);
       }
-      // console.log(this.employees$);
-
-      // console.log(params['name']);
-      // console.log(params['company']);
-      // console.log(params['country']);
-
-      // this.employee.name == params['name'] || null;
-      // console.log(this.employee);
-
-      // if (this.employee) {
-      //   this.getEmployees();
-      // }
     });
   }
-
-  // getEmployees() {
-  //   console.log('employee', this.employee);
-  //   this.store.dispatch(
-  //     EmployeeActions.FetchEmployee({ employee: this.employee })
-  //   );
-  //   this.employees$ = this.store.pipe(select(selectEmployees));
-  //   this.loading$ = this.store.select((store) => store.employee.loading);
-  //   console.log(this.employees$);
-  // }
 }

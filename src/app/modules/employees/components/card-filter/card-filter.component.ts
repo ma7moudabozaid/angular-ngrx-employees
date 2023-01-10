@@ -1,5 +1,3 @@
-import { animate, style, transition, trigger } from '@angular/animations';
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Employee } from '../../../../core/models/employee';
@@ -15,7 +13,6 @@ export class CardFilterComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private http: HttpClient
   ) {}
 
   ngOnInit(): void {
